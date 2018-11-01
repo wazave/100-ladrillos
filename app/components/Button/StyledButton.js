@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledButton = styled.button`
   background: ${props => props.theme.colors.primary};
+  outline: none;
 
   font-size: 16px;
   font-family: 'Roboto Condensed', sans-serif;
