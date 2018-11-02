@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import numeral from 'numeral';
 
 const StyledSidebarIndicator = styled.div`
   display: flex;
@@ -28,17 +29,18 @@ const StyledValue = styled(StyledLegend)`
 `;
 
 function SidebarIndicator({ legend, value, ...rest }) {
+  const formattedValue = numeral(value).format('$0,0');
   return (
     <StyledSidebarIndicator {...rest}>
       <StyledLegend>{legend}</StyledLegend>
-      <StyledValue>{value}</StyledValue>
+      <StyledValue>{formattedValue}</StyledValue>
     </StyledSidebarIndicator>
   );
 }
 
 SidebarIndicator.propTypes = {
   legend: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default SidebarIndicator;

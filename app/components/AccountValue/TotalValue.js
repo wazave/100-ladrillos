@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import numeral from 'numeral';
 
 const StyledTotalValueContainer = styled.div`
   height: 96;
@@ -38,11 +39,12 @@ const StyledValue = styled(StyledLegend)`
 `;
 
 function TotalValue({ legend, value, ...rest }) {
+  const formattedValue = numeral(value).format('$0,0');
   return (
     <StyledTotalValueContainer>
       <StyledTotalValue {...rest}>
         <StyledLegend>{legend}</StyledLegend>
-        <StyledValue>{value}</StyledValue>
+        <StyledValue>{formattedValue}</StyledValue>
       </StyledTotalValue>
     </StyledTotalValueContainer>
   );
@@ -50,7 +52,7 @@ function TotalValue({ legend, value, ...rest }) {
 
 TotalValue.propTypes = {
   legend: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.number,
 };
 
 export default TotalValue;

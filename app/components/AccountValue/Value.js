@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import numeral from 'numeral';
 
 import Separator from './Separator';
 
@@ -59,12 +60,13 @@ function Value({
   warning,
   ...rest
 }) {
+  const formattedValue = numeral(value).format('$0,0');
   return (
     <React.Fragment>
       <StyledValueContainer {...rest}>
         <StyledLegend>{legend}</StyledLegend>
         <StyledValue greenValue={greenValue} underlineValue={underlineValue}>
-          {value}
+          {formattedValue}
         </StyledValue>
         {warning && <StyledWarning>{warning}</StyledWarning>}
       </StyledValueContainer>
@@ -78,7 +80,7 @@ Value.propTypes = {
   legend: PropTypes.string.isRequired,
   separator: PropTypes.bool,
   underlineValue: PropTypes.bool,
-  value: PropTypes.string,
+  value: PropTypes.number,
   warning: PropTypes.string,
 };
 
