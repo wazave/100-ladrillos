@@ -10,16 +10,41 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import { injectIntl } from 'react-intl';
+import { Switch, Route, Redirect } from 'react-router-dom';
+
+import Section from 'components/Section';
+import Userbar from 'components/Userbar';
+import Footer from 'components/Footer';
+
+import BuyContainer from 'containers/BuyContainer';
+import MyAccountContainer from 'containers/MyAccountContainer';
+import SidebarContainer from 'containers/SidebarContainer';
+
+import HomePageWrapper from './HomePageWrapper';
+import ContentWrapper from './ContentWrapper';
 
 /* eslint-disable react/prefer-stateless-function */
-export default class HomePage extends React.PureComponent {
-  render() {
-    return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
-    );
-  }
-}
+export default injectIntl(
+  class HomePage extends React.PureComponent {
+    render() {
+      return (
+        <HomePageWrapper>
+          <SidebarContainer />
+          <ContentWrapper>
+            <Userbar />
+            <Section>
+              <Switch>
+                <Redirect exact from="/" to="/my-account" />
+                <Route path="/my-account" component={MyAccountContainer} />
+                <Route path="/buy" component={BuyContainer} />
+                <Redirect to="/404" />
+              </Switch>
+            </Section>
+            <Footer />
+          </ContentWrapper>
+        </HomePageWrapper>
+      );
+    }
+  },
+);
