@@ -5,7 +5,7 @@ const StyledHeader = styled.h1`
   font-size: 24px;
   font-family: 'Roboto Condensed', sans-serif;
   font-stretch: condensed;
-  font-weight: 600;
+  font-weight: ${({ slim }) => (slim ? 400 : 600)};
   line-height: 36px;
   margin: 0;
 `;

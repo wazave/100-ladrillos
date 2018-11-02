@@ -14,7 +14,6 @@ const StyledValueContainer = styled.div`
   padding: 0px 16px;
   min-width: 96px;
   max-width: 144px;
-  width: 100%;
   background: ${props => props.theme.colors.backgroundLight};
 `;
 
