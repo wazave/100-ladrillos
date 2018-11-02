@@ -46,35 +46,35 @@ export class MyAccountContainer extends React.Component {
         <AccountValue>
           <AccountValue.TotalValue
             legend="Valor de la cuenta:"
-            value="$1,000,000"
+            value={1000000}
           />
           <AccountValue.Value
             legend="Inversión ladrillos"
-            value="$700,000"
+            value={700000}
             separator
           />
-          <AccountValue.Value legend="Plusvalía" value="$150,000" separator />
+          <AccountValue.Value legend="Plusvalía" value={150000} separator />
           <AccountValue.Value
             legend="Fondo revolvente"
-            value="$30,000"
+            value={30000}
             separator
           />
           <AccountValue.Value
             legend="Ladrillos en proceso de compra"
-            value="$25,000"
+            value={25000}
             separator
             underlineValue
           />
           <AccountValue.Value
             legend="Renta pendiente de liberar"
-            value="$85,000"
+            value={85000}
             separator
             underlineValue
             warning="Liberar"
           />
           <AccountValue.Value
             legend="Dinero disponible"
-            value="$10,000"
+            value={10000}
             greenValue
           />
         </AccountValue>

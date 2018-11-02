@@ -88,13 +88,13 @@ class SidebarContainer extends React.Component {
         <Sidebar.Image src={logo} />
         <Sidebar.Indicator
           legend={this.props.intl.formatMessage({ ...messages.accountWorth })}
-          value="$1.000.000"
+          value={1000000}
         />
         <Sidebar.Indicator
           legend={this.props.intl.formatMessage({
             ...messages.availableCredit,
           })}
-          value="$10.000"
+          value={10000}
         />
         {sidebarButtonsMetadata.map(this.createSidebarButton)}
       </Sidebar>
