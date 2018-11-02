@@ -11,6 +11,7 @@ const StyledSeparator = styled.span`
   align-items: center;
   justify-content: center;
   height: 28px;
+  min-width: 28px;
   width: 28px;
   border-radius: 16px;
 `;

@@ -12,8 +12,9 @@ const StyledValueContainer = styled.div`
   justify-content: center;
   min-height: 100%;
   padding: 0px 16px;
-  min-width: 120px;
+  min-width: 96px;
   max-width: 144px;
+  width: 100%;
   background: ${props => props.theme.colors.backgroundLight};
 `;
 

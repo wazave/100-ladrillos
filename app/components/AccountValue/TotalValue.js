@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import numeral from 'numeral';
 
 const StyledTotalValueContainer = styled.div`
-  height: 96;
+  height: 96px;
   filter: drop-shadow(1px 0px 2px rgba(0, 0, 0, 0.2));
   margin-right: 8px;
 `;
@@ -13,7 +13,7 @@ const StyledTotalValue = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100%;
+  height: 96px;
   min-width: 170px;
   padding: 19px 40px 19px 24px;
   clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
@@ -30,6 +30,7 @@ const StyledLegend = styled.span`
   line-height: 24px;
   margin: 0;
   margin-bottom: 8px;
+  white-space: nowrap;
 `;
 
 const StyledValue = styled(StyledLegend)`

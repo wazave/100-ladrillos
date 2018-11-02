@@ -10,7 +10,7 @@ const AccountValueWrapper = styled.div`
     0 2px 2px 0 rgba(170, 170, 170, 0.12), 0 0 2px 0 rgba(170, 170, 170, 0.14);
   height: 96px;
   width: 100%;
-  /* overflow: hidden; */
+  margin-bottom: 24px;
 `;
 
 export default AccountValueWrapper;
