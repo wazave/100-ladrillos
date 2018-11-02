@@ -54,7 +54,7 @@ const sidebarButtonsMetadata = [
   },
   {
     icon: withdrawlIcon,
-    key: 'withdrawl',
+    key: 'withdraw',
     text: 'Retirar Fondos',
   },
   {
