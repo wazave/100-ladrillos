@@ -4,13 +4,7 @@
  *
  */
 
-import { DEFAULT_ACTION, NAVIGATE } from './constants';
-
-export function defaultAction() {
-  return {
-    type: DEFAULT_ACTION,
-  };
-}
+import { NAVIGATE } from './constants';
 
 export function navigate(to) {
   return {
