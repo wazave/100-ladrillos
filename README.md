@@ -2,7 +2,7 @@
 
 This is a coding challenge for 100 ladrillos, live demo [here](https://wazave.github.io/100-ladrillos/). (limited to github-pages capabilities)
 
-<div align="center">
+<div>
   </a>
   <!-- Build Status -->
   <a href="https://travis-ci.com/wazave/100-ladrillos">
