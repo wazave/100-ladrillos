@@ -17,12 +17,12 @@ import GlobalStyle from '../../global-styles';
 
 export default function App() {
   return (
-    <div>
+    <React.Fragment>
       <Switch>
         <Route exact path="/404" component={NotFoundPage} />
         <Route path="/" component={HomePage} />
       </Switch>
       <GlobalStyle />
-    </div>
+    </React.Fragment>
   );
 }
