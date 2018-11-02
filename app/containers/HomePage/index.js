@@ -17,9 +17,13 @@ import Section from 'components/Section';
 import Userbar from 'components/Userbar';
 import Footer from 'components/Footer';
 
+import AddFoundsContainer from 'containers/AddFoundsContainer';
 import BuyContainer from 'containers/BuyContainer';
 import MyAccountContainer from 'containers/MyAccountContainer';
+import OperationsContainer from 'containers/OperationsContainer';
+import SellContainer from 'containers/SellContainer';
 import SidebarContainer from 'containers/SidebarContainer';
+import WithdrawContainer from 'containers/WithdrawContainer';
 
 import HomePageWrapper from './HomePageWrapper';
 import ContentWrapper from './ContentWrapper';
@@ -37,7 +41,11 @@ export default injectIntl(
               <Switch>
                 <Redirect exact from="/" to="/my-account" />
                 <Route path="/my-account" component={MyAccountContainer} />
+                <Route path="/add" component={AddFoundsContainer} />
                 <Route path="/buy" component={BuyContainer} />
+                <Route path="/movements" component={OperationsContainer} />
+                <Route path="/sell" component={SellContainer} />
+                <Route path="/withdraw" component={WithdrawContainer} />
                 <Redirect to="/404" />
               </Switch>
             </Section>
