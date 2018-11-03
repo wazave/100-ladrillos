@@ -29,12 +29,14 @@ const StyledLegend = styled.span`
   font-stretch: condensed;
   line-height: 24px;
   margin: 0;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   white-space: nowrap;
 `;
 
 const StyledValue = styled(StyledLegend)`
   color: ${props => props.theme.colors.blue};
+  font-size: 28px;
+  line-height: 28px;
   font-weight: 600;
   margin: 0;
 `;
