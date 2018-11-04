@@ -4,10 +4,20 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import {
+  ACCOUNT_DATA_FAILURE,
+  ACCOUNT_DATA_REQUEST,
+  ACCOUNT_DATA_SUCCESS,
+} from './constants';
 
-export function defaultAction() {
-  return {
-    type: DEFAULT_ACTION,
-  };
+export function accountDataRequest() {
+  return { type: ACCOUNT_DATA_REQUEST };
+}
+
+export function accountDataSuccess(payload) {
+  return { type: ACCOUNT_DATA_SUCCESS, payload };
+}
+
+export function accountDataFailure() {
+  return { type: ACCOUNT_DATA_FAILURE };
 }

@@ -1,23 +1,39 @@
 import { createSelector } from 'reselect';
+
+import { objectSnakeToCamel } from 'utils/snakeToCamel';
+
 import { initialState } from './reducer';
+import { key } from './constants';
 
-/**
- * Direct selector to the myAccountContainer state domain
- */
+/* eslint-disable no-underscore-dangle */
 
-const selectMyAccountContainerDomain = state =>
-  state.get('myAccountContainer', initialState);
+const selectMyAccountContainer = state => state.get(key, initialState).toJS();
 
-/**
- * Other specific selectors
- */
+const selectAccountValues = createSelector(
+  selectMyAccountContainer,
+  substate => {
+    const result = objectSnakeToCamel(substate.accountData);
+    delete result._status;
+    return result;
+  },
+);
 
-/**
- * Default selector used by MyAccountContainer
- */
+const selectAccountDataStatus = createSelector(
+  selectMyAccountContainer,
+  substate => substate.accountData.__status,
+);
 
-const makeSelectMyAccountContainer = () =>
-  createSelector(selectMyAccountContainerDomain, substate => substate.toJS());
+const selectAccountTotalValue = createSelector(
+  selectAccountValues,
+  accountValues =>
+    Object.keys(accountValues).reduce(
+      (sum, k) => (k !== '_status' ? sum + accountValues[k] : sum),
+      0,
+    ),
+);
 
-export default makeSelectMyAccountContainer;
-export { selectMyAccountContainerDomain };
+export {
+  selectAccountDataStatus,
+  selectAccountValues,
+  selectAccountTotalValue,
+};

@@ -15,6 +15,7 @@ const StyledValueContainer = styled.div`
   min-width: 96px;
   max-width: 144px;
   background: ${props => props.theme.colors.backgroundLight};
+  border-radius: 8px;
 `;
 
 const StyledLegend = styled.span`

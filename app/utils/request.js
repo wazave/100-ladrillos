@@ -42,3 +42,10 @@ export default function request(url, options) {
     .then(checkStatus)
     .then(parseJSON);
 }
+
+export const STATUS = {
+  INITIAL: 'INITIAL',
+  REQUEST: 'REQUEST',
+  SUCCESS: 'SUCCESS',
+  FAILURE: 'FAILURE',
+};

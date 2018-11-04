@@ -15,19 +15,32 @@ import { bindActionCreators, compose } from 'redux';
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
 
-import AccountValue from 'components/AccountValue';
+// import AccountValue from 'components/AccountValue';
 import Button from 'components/Button';
 import Header from 'components/Header';
+// import MyProfits from 'components/MyProfits';
+
+// import stimatedRent from 'images/renta-anual-estimada.svg';
+// import actualRent from 'images/renta-anual-actual.svg';
+// import actualRent2 from 'images/renta-anual-actual (1).svg';
+// import handshake from 'images/handshake.svg';
 
 import HeaderButtonSeparator from './HeaderButtonSeparator';
+import AccountValueContainer from './AccountValueContainer';
 
-import makeSelectMyAccountContainer from './selectors';
+// import makeSelectMyAccountContainer from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import { accountDataRequest } from './actions';
+import { key } from './constants';
 
 /* eslint-disable react/prefer-stateless-function */
 export class MyAccountContainer extends React.Component {
+  componentDidMount() {
+    this.props.accountDataRequest();
+  }
+
   render() {
     const { intl } = this.props;
     return (
@@ -43,41 +56,38 @@ export class MyAccountContainer extends React.Component {
           <Header>{intl.formatMessage({ ...messages.header })}</Header>
           <Button>{intl.formatMessage({ ...messages.seeCashFlow })}</Button>
         </HeaderButtonSeparator>
-        <AccountValue>
-          <AccountValue.TotalValue
-            legend="Valor de la cuenta:"
-            value={1000000}
-          />
-          <AccountValue.Value
-            legend="Inversión ladrillos"
-            value={700000}
-            separator
-          />
-          <AccountValue.Value legend="Plusvalía" value={150000} separator />
-          <AccountValue.Value
-            legend="Fondo revolvente"
-            value={30000}
-            separator
-          />
-          <AccountValue.Value
-            legend="Ladrillos en proceso de compra"
-            value={25000}
-            separator
-            underlineValue
-          />
-          <AccountValue.Value
-            legend="Renta pendiente de liberar"
-            value={85000}
-            separator
-            underlineValue
-            warning="Liberar"
-          />
-          <AccountValue.Value
-            legend="Dinero disponible"
-            value={10000}
-            greenValue
-          />
-        </AccountValue>
+        <AccountValueContainer />
+        {/* <Header slim>
+          {intl.formatMessage({ ...messages.myProfitsHeader })}
+        </Header>
+        <MyProfits>
+          <MyProfits.Overview>
+            <MyProfits.OverviewSum legend="Mi Rendimiento:" value={435000} />
+            <MyProfits.OverviewDetail
+              icon={stimatedRent}
+              legend="Mi Rendimiento:"
+              value={150000}
+              separator
+            />
+            <MyProfits.OverviewDetail
+              icon={handshake}
+              legend="Utilidad de Ventas:"
+              value={100000}
+              separator
+            />
+            <MyProfits.OverviewDetail
+              icon={actualRent}
+              legend="Rentas Recibidas:"
+              value={180000}
+              separator
+            />
+            <MyProfits.OverviewDetail
+              icon={actualRent2}
+              legend="Otros:"
+              value={5000}
+            />
+          </MyProfits.Overview>
+        </MyProfits> */}
       </React.Fragment>
     );
   }
@@ -86,14 +96,15 @@ export class MyAccountContainer extends React.Component {
 MyAccountContainer.propTypes = {
   intl: PropTypes.shape({ formatMessage: PropTypes.func.isRequired })
     .isRequired,
+  accountDataRequest: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  myAccountContainer: makeSelectMyAccountContainer(),
+  // myAccountContainer: makeSelectMyAccountContainer(),
 });
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({}, dispatch);
+  return bindActionCreators({ accountDataRequest }, dispatch);
 }
 
 const withConnect = connect(
@@ -101,8 +112,8 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'myAccountContainer', reducer });
-const withSaga = injectSaga({ key: 'myAccountContainer', saga });
+const withReducer = injectReducer({ key, reducer });
+const withSaga = injectSaga({ key, saga });
 
 export default compose(
   withReducer,
