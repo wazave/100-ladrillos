@@ -4,7 +4,7 @@ import request from 'utils/request';
 import { ACCOUNT_DATA_REQUEST } from './constants';
 import { accountDataFailure, accountDataSuccess } from './actions';
 
-export function* loginRequest() {
+export function* fetchAccountData() {
   // const requestURL = `${process.env.API_URL}/users/${userId}/my-account`;
   const requestURL =
     'https://fakehundredbricks-hbhvbnpqnm.now.sh/users/98ef3f8c-e3e4-43c3-bbb2-e734c54400fd/my-account';
@@ -19,5 +19,5 @@ export function* loginRequest() {
 }
 
 export default function* myAccountContainerSaga() {
-  yield takeLatest(ACCOUNT_DATA_REQUEST, loginRequest);
+  yield takeLatest(ACCOUNT_DATA_REQUEST, fetchAccountData);
 }

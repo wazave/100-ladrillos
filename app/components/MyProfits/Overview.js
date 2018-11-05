@@ -7,6 +7,8 @@ const OverviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 8px;
+  min-width: 204px;
+  z-index: 100;
 `;
 
 function Overview(props) {

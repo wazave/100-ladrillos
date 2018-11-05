@@ -6,10 +6,10 @@ const MyProfitsWrapper = styled.div`
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
   margin-top: 8px;
   overflow: hidden;
+  position: relative;
 `;
 
 export default MyProfitsWrapper;

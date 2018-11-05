@@ -49,7 +49,7 @@ export default injectIntl(
                 <Redirect to="/404" />
               </Switch>
             </Section>
-            <Footer />
+            <Footer>Soy un footer</Footer>
           </ContentWrapper>
         </HomePageWrapper>
       );
